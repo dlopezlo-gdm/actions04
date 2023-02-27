@@ -8,8 +8,7 @@ jobs:
         run: |
           mkdir secrets
           cd secrets
-          var1=`gh secret list --repo capterra/terraform-poc | awk '{print $1}'`
-          echo "$var1" | tr ' ' '\n' >> list.txt
+          echo "SECRET1 SECRET2 SECRET3" | tr ' ' '\n' >> list.txt
         
           file="list.txt"
           
