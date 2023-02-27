@@ -12,6 +12,5 @@ jobs:
           echo "$var1" | tr ' ' '\n' >> list.txt
         
           file="list.txt"
-          echo ${{ secrets.GHA_TOKEN }}
           
           for line in $(cat $file); do echo $line; done
