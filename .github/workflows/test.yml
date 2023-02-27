@@ -1,0 +1,17 @@
+name: deploy
+on: push
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: test print secrets
+        run: |
+          mkdir secrets
+          cd secrets
+          var1=`gh secret list --repo capterra/terraform-poc | awk '{print $1}'`
+          echo "$var1" | tr ' ' '\n' >> list.txt
+        
+          file="list.txt"
+          echo ${{ secrets.GHA_TOKEN }}
+          
+          for line in $(cat $file); do echo $line; done
