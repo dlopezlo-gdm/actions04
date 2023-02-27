@@ -13,5 +13,6 @@ jobs:
           file="list.txt"
 
           for line in $(cat $file); do 
-            echo $line ${{ secrets[line] }}; 
+            echo $line ${{ secrets[env.line]}}; 
+
           done
