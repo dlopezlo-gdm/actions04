@@ -13,6 +13,6 @@ jobs:
           file="list.txt"
 
           for line in $(cat $file); do 
-            echo $line ${{ secrets[env.line]}}; 
-
+            echo "LINE_SECRET=$line)" >> $GITHUB_ENV
+            echo $line ${{ secrets[env.LINE_SECRET]}}; 
           done
