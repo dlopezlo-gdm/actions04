@@ -9,7 +9,9 @@ jobs:
           mkdir secrets
           cd secrets
           echo "SECRET1 SECRET2 SECRET3" | tr ' ' '\n' >> list.txt
-        
+
           file="list.txt"
-          
-          for line in $(cat $file); do echo $line; done
+
+          for line in $(cat $file); do 
+            echo $line ${{ secrets[line] }}; 
+          done
