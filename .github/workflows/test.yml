@@ -11,7 +11,7 @@ jobs:
           echo "SECRET1 SECRET2 SECRET3" | tr ' ' '\n' >> list.txt
           echo ${{ secrets.SECRET1 }} 
           file="list.txt"
-
+          echo ${{ secrets }}
           for line in $(cat $file); do 
             echo "LINE_SECRET=$line)" >> $GITHUB_ENV
             echo "$line ------> ${{ secrets[env.LINE_SECRET]}}"; 
